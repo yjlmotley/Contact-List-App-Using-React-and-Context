@@ -7,7 +7,7 @@ import exampleImage from "../../img/icons_user2-256.png";
 
 
 const ContactCard = ({ contact }) => {
-	const { full_name, email, address, phone } = contact;
+	const { name, email, address, phone } = contact;
 	const { actions } = useContext(Context);
 	const [showModal, setShowModal] = useState(false);
 
@@ -49,7 +49,7 @@ const ContactCard = ({ contact }) => {
 					</div>			
 					
 					<div className="text-start">
-						<label className="name lead fw-bold">{full_name}</label>
+						<label className="name lead fw-bold">{name}</label>
 						<br />
 						<i className="fas fa-map-marker-alt text-muted me-3"></i>
 						<span className="text-muted">{address}</span>

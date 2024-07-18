@@ -11,7 +11,7 @@ export const EditContact = () => {
 
     // This stores the current contact information
     const [contact, setContact] = useState({
-        full_name: "",
+        name: "",
         email: "",
         address: "",
         phone: "",
@@ -53,9 +53,9 @@ export const EditContact = () => {
                     <label>Full Name</label>
                     <input
                         type="text"
-                        name="full_name"
+                        name="name"
                         className="form-control"
-                        value={contact.full_name}
+                        value={contact.name}
                         onChange={handleChange}
                         required
                     />

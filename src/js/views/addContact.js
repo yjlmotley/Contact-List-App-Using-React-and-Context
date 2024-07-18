@@ -31,12 +31,12 @@ export const AddContact = () => {
 			<h1 className="text-center mt-5">Add a new contact</h1>
 			<form onSubmit={handleSubmit} className="contact-form">
 				<div className="form-group">
-					<label>Full Name</label>
+					<label>Name</label>
 					<input
 						type="text"
-						name="full_name"
+						name="name"
 						className="form-control"
-						placeholder="Full Name"
+						placeholder="Name"
 						onChange={(e) => { handleChange(e); }}
 						required
 					/>
