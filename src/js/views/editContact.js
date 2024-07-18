@@ -44,12 +44,21 @@ export const EditContact = () => {
         navigate("/");
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseOver = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovered(false);
+    };
+
     // To edit form
     return (
         <div className="container">
-            <h1 className="text-center mt-5">Update Contact</h1> 
+            <h1 className="text-center mt-5">Update Contact</h1>
             <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
+                <div className="form-group mt-3">
                     <label>Full Name</label>
                     <input
                         type="text"
@@ -60,7 +69,7 @@ export const EditContact = () => {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-2">
                     <label>Email</label>
                     <input
                         type="email"
@@ -71,7 +80,7 @@ export const EditContact = () => {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-2">
                     <label>Address</label>
                     <input
                         type="text"
@@ -82,7 +91,7 @@ export const EditContact = () => {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-2">
                     <label>Phone</label>
                     <input
                         type="text"
@@ -93,25 +102,30 @@ export const EditContact = () => {
                         required
                     />
                 </div>
-                    <Link to={"/"}>
-                        <button
-                            className="btn btn-primary form-control mt-3">
-                            Cancel
-                        </button>
-                    </Link>
-                <button 
+                <button
                     type="submit"
-                    className="btn btn-primary form-control my-2">
+                    className="btn btn-primary mt-4 form-control">
                     {contact.id ? "Update Contact" : "save"}
                 </button>
             </form>
+            <a
+                href="/"
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                style={{
+                    textDecoration: isHovered ? 'underline' : 'none',
+                    cursor: 'default'
+                }}
+            >
+                Or get back to contacts
+            </a>
         </div>
     );
 };
 
 // Props for the edit contact component
 EditContact.propTypes = {
-  match: PropTypes.object,
+    match: PropTypes.object,
 };
 
 

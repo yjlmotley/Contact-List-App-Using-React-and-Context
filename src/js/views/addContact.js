@@ -11,6 +11,14 @@ export const AddContact = () => {
 		agenda_slug: "yjlmotley",
 	});
 
+	const [isHovered, setIsHovered] = useState(false);
+    const handleMouseOver = () => {
+        setIsHovered(true);
+    };
+    const handleMouseOut = () => {
+        setIsHovered(false);
+    };
+
 	const handleChange = (e) => {
 		setContactData({ ...contactData, [e.target.name]: e.target.value });
 	};
@@ -30,7 +38,7 @@ export const AddContact = () => {
 		<div className="container">
 			<h1 className="text-center mt-5">Add a new contact</h1>
 			<form onSubmit={handleSubmit} className="contact-form">
-				<div className="form-group">
+				<div className="form-group mt-3">
 					<label>Name</label>
 					<input
 						type="text"
@@ -41,7 +49,7 @@ export const AddContact = () => {
 						required
 					/>
 				</div>
-				<div className="form-group">
+				<div className="form-group mt-2">
 					<label>Email</label>
 					<input
 						type="email"
@@ -52,7 +60,7 @@ export const AddContact = () => {
 						required
 					/>
 				</div>
-				<div className="form-group">
+				<div className="form-group mt-2">
 					<label>Phone</label>
 					<input
 						type="text"
@@ -63,7 +71,7 @@ export const AddContact = () => {
 						required
 					/>
 				</div>
-				<div className="form-group">
+				<div className="form-group mt-2">
 					<label>Address</label>
 					<input
 						type="text"
@@ -76,11 +84,21 @@ export const AddContact = () => {
 				</div>
 				<button
 					type="submit"
-					className="btn btn-primary form-control mt-3">
+					className="btn btn-primary form-control mt-4">
 					{contactData.id ? "Update Contact" : "save"}
 				</button>
 			</form>
-			<a href="/">or get back to contacts</a>
+			<a
+                href="/"
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                style={{
+                    textDecoration: isHovered ? 'underline' : 'none',
+                    cursor: 'default'
+                }}
+            >
+                Or get back to contacts
+            </a>
 		</div>
 	);
 };
