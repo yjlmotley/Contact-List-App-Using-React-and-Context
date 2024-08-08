@@ -11,7 +11,7 @@ export const Home = () => {
 		<div className="container pb-1">
 			<div className="d-flex justify-content-end">
 				<Link to="/addContact">
-					<button className="btn btn-success my-3">Add new contact</button>
+					<button className="btn btn-success my-3">Add contact</button>
 				</Link>
 			</div>
 			<div
